@@ -1,0 +1,38 @@
+{
+  "name": "comx",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
+    "classnames": "^2.3.1",
+    "next": "12.0.7",
+    "prop-types": "^15.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.26.0",
+    "react-redux": "^8.0.2",
+    "react-step-progress-bar": "^1.0.3",
+    "rsuite": "^5.16.1",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "autoprefixer": "^10.4.1",
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.7",
+    "jest": "^27.4.7",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.8"
+  },
+  "resolutions": {
+    "webpack": "^5"
+  }
+}

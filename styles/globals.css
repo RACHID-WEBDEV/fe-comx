@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p,
+  a,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Roboto', 'serif';
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  @apply bg-white;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+
+.scrollbar::-webkit-scrollbar {
+  @apply hidden;
+  width: 0;
+  background: transparent; /* make scrollbar transparent */
+}
+
+/* make scrollbar transparent on Firefox, IE and Edge*/
+.scrollbar {
+  @apply scroll-p-0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.step {
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: #d71e0e;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step.completed {
+  background-color: #d71e0e;
+}
