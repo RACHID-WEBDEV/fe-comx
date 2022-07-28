@@ -1,7 +1,14 @@
 import React from 'react';
-import { Button, Input } from '@/components/form';
+import { Button, DatePicker, Input, Select } from '@/components/form';
 import Link from 'next/link';
-const RegisterStepOne = ({ validation }) => {
+const RegisterStepOne = () => {
+  const sampleData = [
+    { title: 'Partnership', value: 'Partnership' },
+    { title: 'Private', value: 'Private' },
+    { title: 'Sole proprietorship', value: 'sole_proprietorship' },
+    { title: 'Corporation', value: 'corporation' },
+    { title: 'Nonprofit', value: 'nonprofit' }
+  ];
   return (
     <>
       <div className="text-center font-normal ">
@@ -15,14 +22,14 @@ const RegisterStepOne = ({ validation }) => {
           <div className="flex items-center gap-2">
             <Link href="/register">
               <a>
-                <Button color="secondary" className="w-[146px] h-[52px]">
+                <Button color="teritary" className="w-[146px] h-[52px]">
                   Individual
                 </Button>
               </a>
             </Link>
             <Link href="/corporate-register">
               <a>
-                <Button color="teritary" className="w-[146px] h-[52px]">
+                <Button color="secondary" className="w-[146px] h-[52px]">
                   Corporate
                 </Button>
               </a>
@@ -31,20 +38,21 @@ const RegisterStepOne = ({ validation }) => {
 
           <div>
             <div className="grid grid-cols-6 gap-2 col-span-full lg:col-span-3 mt-4">
+              <div className="col-span-full ">
+                <Input label="Company Name" name="companyName" placeholder="Enter your company Name" />
+              </div>
               <div className="col-span-full sm:col-span-3">
-                <Input
-                  label="Your First Name"
-                  name="fname"
-                  validation={validation}
-                  placeholder="Enter your First Name"
+                <Select
+                  label="Type of Business "
+                  defaultOption="Select Type of Business"
+                  name="businessType"
+                  options={sampleData}
                 />
               </div>
               <div className="col-span-full sm:col-span-3 ">
-                <Input label="Your Last Name" name="lname" validation={validation} placeholder="Enter your Last Name" />
-              </div>
-
-              <div className="col-span-full ">
-                <Input label="Your Email" name="email" validation={validation} placeholder="Enter your Email" />
+                <div className="py-1">
+                  <DatePicker name="incorporationDate" label="Date of Incorporation" placeholder="Select Date" />
+                </div>
               </div>
             </div>
           </div>

@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 export function ErrorMessage({ className, name }) {
   const {
-    formState: { errors }
+    formState: { errors, dirtyFields }
   } = useFormContext();
+
+  // console.log('dirtystrings', dirtyFields);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import Logo from '@/components/Logo';
-import { Button } from '@/components/form';
+import { Button, Alert } from '@/components/form';
 import Link from 'next/link';
 
 export default function Home() {
@@ -13,6 +13,7 @@ export default function Home() {
               <div className="text-center font-normal ">
                 <p className="text-xl md:text-3xl  text-black-200">Sign in to ComX</p>
                 <p className="text-sm mt-2 text-black-100">Welcome to ComX</p>
+                <Alert message="Phone number has already been used" />
 
                 <div className="mt-6">
                   <Link href="/sign-in">

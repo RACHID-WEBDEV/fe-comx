@@ -4,6 +4,7 @@ import StepThree from '@/components/individual/RegisterStepThree';
 import StepComplete from '@/components/individual/RegistionComplete';
 
 const data = [
+  {},
   {
     id: 1,
     label: 'Quick Start',

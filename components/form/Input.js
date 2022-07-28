@@ -6,10 +6,11 @@ import { ShowPasswordIcon, HidePasswordIcon } from '@/public/signUp/passwordSvgs
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 
-const Input = ({ className, children, Icon, name, placeholder, label, type }) => {
+const Input = ({ className, children, Icon, name, placeholder, label, type, validation }) => {
   const {
     register,
-    formState: { errors }
+    formState: { errors, dirtyFields },
+    getValues
   } = useFormContext();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -26,7 +27,15 @@ const Input = ({ className, children, Icon, name, placeholder, label, type }) =>
   const isPasswordField = type === 'password';
   const inputIcon = isPasswordField ? PasswordIcon : Icon;
 
-  const hasErrors = !!errors?.[name];
+  const hasErrors = !!errors?.[name] && !!dirtyFields?.[name];
+
+  //&& console.log('validation', validation);
+  // console.log('dirtyFields', !!dirtyFields?.[name]);
+  console.log('gettValues', !!getValues(name));
+  console.log('hasErrors', hasErrors);
+  console.log('hasvalidation?.includes(name)', validation?.includes(name));
+  console.log('!!errors?.[name]', !!errors?.[name]);
+  console.log('name', name);
 
   return (
     <>
@@ -57,7 +66,8 @@ const Input = ({ className, children, Icon, name, placeholder, label, type }) =>
           )}
         </div>
       </div>
-      <ErrorMessage name={name} />
+
+      {hasErrors && <ErrorMessage name={name} />}
     </>
   );
 };

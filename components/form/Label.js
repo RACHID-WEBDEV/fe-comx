@@ -6,7 +6,7 @@ const Label = ({ className, htmlFor, text }) => {
   return (
     <label
       htmlFor={htmlFor}
-      className={classNames('cursor-pointer text-sm font-Roboto text-black-100 font-normal', className)}
+      className={classNames('cursor-pointer text-sm font-Roboto text-black-300 font-medium', className)}
     >
       {text}
     </label>

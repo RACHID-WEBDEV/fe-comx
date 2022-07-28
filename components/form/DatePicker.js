@@ -3,7 +3,6 @@ import { DatePicker } from 'rsuite';
 import { Controller, useFormContext } from 'react-hook-form';
 import { ErrorMessage } from '.';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Label from './Label';
 
 const Datepicker = ({ name, label, placeholder }) => {
@@ -28,7 +27,7 @@ const Datepicker = ({ name, label, placeholder }) => {
           />
         )}
       />
-      <ErrorMessage name={name} />
+      <ErrorMessage name={name} className="mt-2" />
     </>
   );
 };
