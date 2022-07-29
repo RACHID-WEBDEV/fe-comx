@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { PasswordCheckIcon } from '../../../assets/svgs';
-import { Input } from '../../../components/form';
+import { ShowPasswordIcon } from '@/public/signUp/passwordSvgs';
+import { Input } from '@/components/form';
 
 describe('Input', () => {
   it('renders a default input', () => {
@@ -46,7 +46,7 @@ describe('Input', () => {
   });
 
   it('render Icons is passed to Icon', () => {
-    const IconPass = <PasswordCheckIcon width="18px" height="18px" fill="#292D32" />;
+    const IconPass = <ShowPasswordIcon width="18px" height="18px" fill="#292D32" />;
     render(<Input name="email" Icon={IconPass} />);
 
     const inputIcon = screen.getByTestId('icon');

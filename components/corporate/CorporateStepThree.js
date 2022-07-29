@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { Input } from '../form';
 
 const RegisterStepThree = ({ validation }) => {
@@ -12,26 +11,16 @@ const RegisterStepThree = ({ validation }) => {
         <div className="mb-40">
           <div className="my-2">
             <Input
-              label="Enter the 4-digit code that was sent to +23472639482 and 
-            name@mymail.com"
+              label="Enter the 4-digit code that was sent to name@mymail.com"
               placeholder="Enter code"
               name="otp"
               type="number"
               validation={validation}
             />
           </div>
-          <p className="text-xs text-primary-300/80 text-center">Resend Code</p>
+          <p className="text-xs text-primary-300/80 text-left">Resend Code</p>
+          <p className="text-xs text-primary-300/80 text-left">Verify via Phone Call</p>
         </div>
-
-        {/* <div className=" mb-5 lg:mb-0 flex items-center justify-between text-sm font-semibold uppercase">
-          <Link href="/sign-in">
-            <a>
-              <p className="text-black-100 "> Back</p>
-            </a>
-          </Link>
-
-          <button className="text-red-300 uppercase font-bold "> Proceed</button>
-        </div> */}
       </div>
     </>
   );

@@ -14,13 +14,13 @@ export function SelectField({ children, className, containerClassName, label, na
 
   return (
     <>
-      {label && <Label className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && <Label name={name} htmlFor={name} text={label} />}
       <div className={classNames('relative z-0 mb-2 w-full group', containerClassName)}>
         <select
           id={name}
           {...register(name)}
           className={classNames(
-            'block py-3.5 px-3 w-full text-sm mt-1 appearance-none transition ease-in-out bg-secondary-25 border-primary-200 border rounded-[2px] focus:outline-none focus:ring-0 peer',
+            'block py-3.5 px-3 w-full text-sm mt-1 text-primary-300 appearance-none transition ease-in-out bg-secondary-25 border-primary-200 border rounded-[2px] focus:outline-none focus:ring-0 peer',
             className,
             { 'focus:border-red-300': hasErrors },
             { 'focus:border-primary-300': !hasErrors }
