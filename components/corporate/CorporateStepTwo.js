@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from '@/components/form';
 
-const RegisterStepTwo = () => {
+const RegisterStepTwo = ({ validation }) => {
   return (
     <>
       <p className="text-xl md:text-3xl  text-black-200">Register new account</p>
@@ -10,13 +10,26 @@ const RegisterStepTwo = () => {
       <div className="mt-10 text-left">
         <div className="grid grid-cols-6 gap-2 col-span-full lg:col-span-3 mt-4">
           <div className="col-span-full">
-            <Input label="Company Email" name="email" type="email" placeholder="Enter your email" />
+            <Input
+              label="Company Email"
+              validation={validation}
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+            />
           </div>
           <div className="col-span-full">
-            <Input label="Password" name="password" placeholder="Enter your password" type="password" />
+            <Input
+              label="Password"
+              validation={validation}
+              name="password"
+              placeholder="Enter your password"
+              type="password"
+            />
           </div>
           <div className="col-span-full ">
             <Input
+              validation={validation}
               label="Confirm Password"
               name="confirmPassword"
               placeholder="Confirm your password"

@@ -4,7 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 const HookForm = ({ onSubmit, children, schema }) => {
   const methods = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    mode: 'onChange'
   });
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, DatePicker, Input, Select } from '@/components/form';
 import Link from 'next/link';
-const RegisterStepOne = () => {
+const RegisterStepOne = ({ validation }) => {
   const sampleData = [
     { title: 'Partnership', value: 'Partnership' },
     { title: 'Private', value: 'Private' },
@@ -39,7 +39,12 @@ const RegisterStepOne = () => {
           <div>
             <div className="grid grid-cols-6 gap-2 col-span-full lg:col-span-3 mt-4">
               <div className="col-span-full ">
-                <Input label="Company Name" name="companyName" placeholder="Enter your company Name" />
+                <Input
+                  label="Company Name"
+                  name="companyName"
+                  validation={validation}
+                  placeholder="Enter your company Name"
+                />
               </div>
               <div className="col-span-full sm:col-span-3">
                 <Select
@@ -47,11 +52,17 @@ const RegisterStepOne = () => {
                   defaultOption="Select Type of Business"
                   name="businessType"
                   options={sampleData}
+                  validation={validation}
                 />
               </div>
               <div className="col-span-full sm:col-span-3 ">
                 <div className="py-1">
-                  <DatePicker name="incorporationDate" label="Date of Incorporation" placeholder="Select Date" />
+                  <DatePicker
+                    name="incorporationDate"
+                    validation={validation}
+                    label="Date of Incorporation"
+                    placeholder="Select Date"
+                  />
                 </div>
               </div>
             </div>

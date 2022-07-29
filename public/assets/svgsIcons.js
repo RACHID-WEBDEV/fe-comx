@@ -286,3 +286,22 @@ export const Sun = (props) => (
     <path d="M10.9036 3.7418L11.7415 2.90271" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+export const Search = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon icon-tabler icon-tabler-search"
+    width={18}
+    height={18}
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="#92929D"
+    fill="none"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" />
+    <circle cx={10} cy={10} r={7} />
+    <line x1={21} y1={21} x2={15} y2={15} />
+  </svg>
+);

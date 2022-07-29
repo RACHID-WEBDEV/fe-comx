@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import Logo from '@/components/Logo';
-import { Button, Input, Select } from '@/components/form';
 import HookForm from '@/components/form/Form';
-import { CorporateRegSchema } from '../schema/authSchema';
 
+import { CorporateRegSchema } from '../schema/authSchema';
 import { StepsProgress } from '@/components/StepsProgress';
 import StepNavigation from '@/components/StepNavigation';
-import data from '@/data/multiStepForm';
 import classNames from 'classnames';
 
 import StepOne from '@/components/corporate/CorporateStepOne';
@@ -16,8 +14,17 @@ import StepComplete from '@/components/corporate/CorporateComplete';
 
 export default function Corporate() {
   const [step, setStep] = useState(1);
+  const firstStep = ['companyName', 'businessType', 'incorporationDate'];
+  const secondStep = ['email', 'password', 'confirmPassword'];
+  const thirdStep = ['otp'];
 
-  const All_STEP = [<></>, <StepOne key="1" />, <StepTwo key="2" />, <StepThree key="3" />, <StepComplete key="4" />];
+  const All_STEP = [
+    <></>,
+    <StepOne validation={firstStep} key="1" />,
+    <StepTwo validation={secondStep} key="2" />,
+    <StepThree validation={thirdStep} key="3" />,
+    <StepComplete key="4" />
+  ];
 
   const lastStep = All_STEP.length - 1;
 

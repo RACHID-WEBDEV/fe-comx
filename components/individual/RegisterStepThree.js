@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Input } from '../form';
 
-const RegisterStepThree = () => {
+const RegisterStepThree = ({ validation }) => {
   return (
     <>
       <p className="text-xl md:text-3xl  text-black-200">Account details</p>
@@ -17,6 +17,7 @@ const RegisterStepThree = () => {
               placeholder="Enter code"
               name="otp"
               type="number"
+              validation={validation}
             />
           </div>
           <p className="text-xs text-primary-300/80 text-center">Resend Code</p>

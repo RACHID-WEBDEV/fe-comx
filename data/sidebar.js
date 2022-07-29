@@ -1,53 +1,41 @@
 import { Overview, Market, Portfolio, Community, Report, Settings } from '@/public/assets/svgsIcons';
 const sidebar = [
   {
-    //   activeIcon: '/assets/dashboard/dashboard-active.svg',
     icon: <Overview />,
     name: 'Dashboard',
-    url: '/dashboard'
+    url: '/dashboard',
+    color: false
   },
   {
-    //   activeIcon: '/assets/dashboard/transaction-active.svg',
     icon: <Market />,
     name: 'Market',
-    url: '/dashboard/market'
+    url: '/dashboard/market',
+    color: true
   },
   {
-    //   activeIcon: '/assets/dashboard/published.svg',
     icon: <Portfolio />,
     name: 'Portfolio',
-    url: '/dashboard/portfolio'
+    url: '/dashboard/portfolio',
+    color: false
   },
 
   {
-    //   activeIcon: '/assets/dashboard/draft.svg',
     icon: <Community />,
     name: 'Community',
-    url: '/dashboard/community'
+    url: '/dashboard/community',
+    color: false
   },
   {
-    //   activeIcon: '/assets/dashboard/wallet.svg',
     icon: <Report />,
     name: 'Report',
-    url: '/dashboard/report'
+    url: '/dashboard/report',
+    color: false
   },
   {
-    //   activeIcon: '/assets/dashboard/Settings.svg',
     icon: <Settings />,
     name: 'Settings',
-    url: '/dashboard/settings'
-  },
-  {
-    //   activeIcon: '/assets/dashboard/wallet.svg',
-    icon: <Report />,
-    name: 'Report',
-    url: '/dashboard/report'
-  },
-  {
-    //   activeIcon: '/assets/dashboard/Settings.svg',
-    icon: <Settings />,
-    name: 'Settings',
-    url: '/dashboard/settings'
+    url: '/dashboard/settings',
+    color: false
   }
 ];
 

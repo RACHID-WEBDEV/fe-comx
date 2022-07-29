@@ -9,8 +9,7 @@ import classNames from 'classnames';
 const Input = ({ className, children, Icon, name, placeholder, label, type, validation }) => {
   const {
     register,
-    formState: { errors, dirtyFields },
-    getValues
+    formState: { errors, dirtyFields, isValid }
   } = useFormContext();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -27,15 +26,7 @@ const Input = ({ className, children, Icon, name, placeholder, label, type, vali
   const isPasswordField = type === 'password';
   const inputIcon = isPasswordField ? PasswordIcon : Icon;
 
-  const hasErrors = !!errors?.[name] && !!dirtyFields?.[name];
-
-  //&& console.log('validation', validation);
-  // console.log('dirtyFields', !!dirtyFields?.[name]);
-  console.log('gettValues', !!getValues(name));
-  console.log('hasErrors', hasErrors);
-  console.log('hasvalidation?.includes(name)', validation?.includes(name));
-  console.log('!!errors?.[name]', !!errors?.[name]);
-  console.log('name', name);
+  const hasErrors = !!errors?.[name] && (validation?.includes(name) || !!dirtyFields?.[name]) && !isValid;
 
   return (
     <>
@@ -52,6 +43,7 @@ const Input = ({ className, children, Icon, name, placeholder, label, type, vali
             type={isPasswordField ? (showPassword ? 'text' : 'password') : type}
             id={name}
             {...register(name)}
+            validation={validation}
             className={classNames(
               'block py-3.5 px-3 w-full text-sm text-primary-300 bg-white border rounded border-primary-200 appearance-none focus:outline-none focus:ring-0 peer',
               className,

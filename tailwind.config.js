@@ -15,7 +15,7 @@ module.exports = {
         'secondary-100': '#D71E0E',
         'green-100': '#52965E',
         white: '#FFFFFF',
-        gray: { 100: '#F8FAFB', 200: '#F4F4F6' },
+        gray: { 100: '#F8FAFB', 200: '#F4F4F6', 300: '#D6D6D6' },
         black: {
           100: '#252631',
           200: '#1B1E24',

@@ -1,30 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import { useFormContext } from 'react-hook-form';
 
-const StepNavigation = ({ step, lastStep, setStep, name }) => {
-  const {
-    trigger,
-    formState: { dirtyFields, errors, ...first },
-    getValues,
-    clearErrors,
-    resetField
-  } = useFormContext();
+const StepNavigation = ({ step, lastStep, setStep }) => {
+  const { asPath } = useRouter();
+  const corporateRegPath = '/corporate-register' === asPath;
 
-  const hasErrors = !!errors?.[name] && !!dirtyFields?.[name] && !!getValues(name) && ['fname', 'email'].includes(name);
-  const isValid = !!dirtyFields?.[name] && !hasErrors;
+  const { trigger } = useFormContext();
 
-  console.log('formstate', { dirtyFields, errors, first });
+  const handleNextCorperate = async () => {
+    let isValid = false;
 
-  // const handleNextstep = step === 1 && (!hasErrors || hasErrors || !isValid) ? setStep(step - 1) : setStep(step + 1);
+    switch (step) {
+      case 1:
+        isValid = await trigger(['companyName', 'businessType', 'incorporationDate']);
+        break;
+      case 2:
+        isValid = await trigger(['email', 'password', 'confirmPassword']);
+        break;
+      case 3:
+        isValid = await trigger(['otp']);
+        break;
+    }
+    if (isValid) {
+      setStep(step + 1);
+    }
+  };
 
-  //const handleNext = async () => {
   const handleNext = async () => {
     let isValid = false;
-    console.log('getValue Nav', getValues());
-    // const result = await trigger();
-    // console.log(result);
 
     switch (step) {
       case 1:
@@ -37,32 +43,37 @@ const StepNavigation = ({ step, lastStep, setStep, name }) => {
         isValid = await trigger(['otp']);
         break;
     }
-    clearErrors();
-
-    // resetField('fname');
+    // clearErrors()
     if (isValid) {
       setStep(step + 1);
     }
   };
-  //() => setStep(step + 1) //setStep Function
+
   return (
     <div className="py-5 mt-5">
-      <button onClick={handleNext} className="text-black-100 uppercase font-semibold ">
-        Trigeer
-      </button>
       {step === 1 && (
-        <div onClick={() => setStep(step + 1)} className="text-red-300 text-center uppercase font-semibold ">
+        <button
+          type="button"
+          onClick={corporateRegPath ? handleNextCorperate : handleNext}
+          className="text-red-300 uppercase font-semibold "
+        >
           Next Step
-        </div>
+        </button>
       )}
 
       {step === 2 && (
         <>
-          <button onClick={() => setStep(step - 1)} className="text-black-100 uppercase font-semibold ">
-            Back
-          </button>
-          <div onClick={() => setStep(step + 1)} className="text-red-300 text-center uppercase font-semibold ">
-            Verify ACCOUNT
+          <div className="flex justify-between items-center gap-2 px-8">
+            <button onClick={() => setStep(step - 1)} className="text-black-100 uppercase font-semibold ">
+              Back
+            </button>
+            <div
+              onClick={corporateRegPath ? handleNextCorperate : handleNext}
+              type="button"
+              className="text-red-300 text-center uppercase font-semibold "
+            >
+              Verify ACCOUNT
+            </div>
           </div>
         </>
       )}
@@ -79,7 +90,9 @@ const StepNavigation = ({ step, lastStep, setStep, name }) => {
 
       {step === lastStep && (
         <Link href="/dashboard" passHref>
-          <button className="text-red-300 uppercase font-semibold "> Go to dashboard</button>
+          <a>
+            <button className="text-red-300 uppercase font-semibold "> Go to dashboard</button>
+          </a>
         </Link>
       )}
     </div>
