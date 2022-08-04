@@ -47,41 +47,47 @@ const Register = ({ message, name }) => {
 
   // USAGE
   // const onSubmit = ({ params }) => {
-  //   const form_data = { otp: params.otp === 1234 };
-  //   manager.encrypt(form_data); // impure encryption
+  //   console.log('params',params)
+  // const form_data = { otp: params.otp === 1234 };
+  // manager.encrypt(form_data); // impure encryption
 
-  //   const headers = new Headers();
-  //   headers.set('Content-Type', 'application/json');
-  //   // headers.set("Authorization", `Bearer ${
-  //   //   sessionStorage.getItem("user.auth.token") ?? context.user?.token
-  //   // }`);
+  // const headers = new Headers();
+  // headers.set('Content-Type', 'application/json');
+  // // headers.set("Authorization", `Bearer ${
+  // //   sessionStorage.getItem("user.auth.token") ?? context.user?.token
+  // // }`);
 
-  //   fetch('https://comx-sand-api.afexnigeria.com/api/register', {
-  //     method: 'POST',
-  //     body: JSON.stringify(form_data),
-  //     headers
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       manager.decrypt(response); // impure decryption
-  //       console.log(response); // something intelligible
-  //     });
-  //   setStep(step + 1);
+  // fetch('https://comx-sand-api.afexnigeria.com/api/register', {
+  //   method: 'POST',
+  //   body: JSON.stringify(form_data),
+  //   headers
+  // })
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     manager.decrypt(response); // impure decryption
+  //     console.log(response); // something intelligible
+  //   });
+  // setStep(step + 1);
   // };
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    const payload = {
+      ...data,
+      auth_type: 'password'
+    };
+    alert(JSON.stringify(payload));
 
     setStep(step + 1);
   };
+
   return (
     <>
       <div className="overflow-y-scroll  max-w-full h-screen bg-primary-100 w-full py-5 px-4">
         <div className="flex flex-col items-center justify-center">
           <Logo />
           <HookForm onSubmit={onSubmit} schema={IndividualRegSchema}>
-            <div className="min-w-[450px]">
-              <Alert name={name} />
+            <div className="text-center max-w-[400px]">
+              <Alert />
             </div>
             <div className=" mb-5 ">
               <div className="bg-white shadow rounded lg:w-[500px]  md:w-full w-full px-4 py-2 md:pt-8 pb-6 mt-8 md:mt-12 ">
